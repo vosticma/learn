@@ -1,0 +1,52 @@
+# Python program (forty lines of code)
+
+# Import the random module
+import random
+
+# Define a list of words
+words = ["apple", "banana", "cherry", "daisy", "elephant", "fire", "iraffe", "house", "igloo", "joker", "kangaroo",
+         "lemon", "mango", "nut ", "orange", "pineapple", "queen", "rose", "sun", "tree", "umbrella", "violet",
+         "watermelon", "xylophone", "yacht", "zebra"]
+
+# Choose a random word from the list
+word = random.choice(words)
+
+# Create an empty list for guessed letters
+guessed_letters = []
+
+# Define a function to display the current state of the word
+def display_word():
+    displayed_word = ""
+    for letter in word:
+        if letter in guessed_letters:
+            displayed_word += letter + " "
+        else:
+            displayed_word += "_ "
+    return displayed_word.strip()
+
+# Define a function to check if a guessed letter is correct
+def check_letter(letter):
+    if letter in guessed_letters:
+        print("You have already guessed this letter!")
+    else:
+        guessed_letters.append(letter)
+        if letter in word:
+            print("Correct letter!")
+        else:
+            print("Wrong letter!")
+
+# Define a function to check if the word has been guessed completely
+def check_word():
+    for letter in word:
+        if letter not in guessed_letters:
+            return False
+    return True
+
+# Main game loop
+while True:
+    print("Guess the word:", display_word())
+    if check_word():
+        print("You guessed the word!", word)
+        break
+    letter = input("Enter a letter: ")
+    check_letter(letter.lower())
