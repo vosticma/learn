@@ -42,7 +42,7 @@ def check_word():
             return False
     return True
 
-# Main game loop
+# Main game loop.
 while True:
     print("Guess the word:", display_word())
     if check_word():
