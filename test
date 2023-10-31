@@ -24,7 +24,7 @@ def display_word():
             displayed_word += "_ "
     return displayed_word.strip()
 
-# Define a function to check if a guessed letter is correct
+# Define a function to check if a guessed letter is correct.
 def check_letter(letter):
     if letter in guessed_letters:
         print("You have already guessed this letter!")
